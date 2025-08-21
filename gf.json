@@ -1,0 +1,130 @@
+{
+  "id": null,
+  "title": "IoT Sensor Gauges",
+  "tags": ["iot", "prometheus", "gauges"],
+  "timezone": "browser",
+  "schemaVersion": 36,
+  "version": 1,
+  "refresh": "5s",
+  "panels": [
+    {
+      "type": "gauge",
+      "title": "Temperature (°C)",
+      "targets": [{ "expr": "iot_temperature_celsius", "refId": "A" }],
+      "gridPos": { "x": 0, "y": 0, "w": 6, "h": 6 },
+      "fieldConfig": {
+        "defaults": { "min": 0, "max": 50 }
+      }
+    },
+    {
+      "type": "gauge",
+      "title": "Humidity (%)",
+      "targets": [{ "expr": "iot_humidity_percent", "refId": "B" }],
+      "gridPos": { "x": 6, "y": 0, "w": 6, "h": 6 },
+      "fieldConfig": {
+        "defaults": { "min": 0, "max": 100 }
+      }
+    },
+    {
+      "type": "gauge",
+      "title": "Vibration (units)",
+      "targets": [{ "expr": "iot_vibration_units", "refId": "C" }],
+      "gridPos": { "x": 12, "y": 0, "w": 6, "h": 6 },
+      "fieldConfig": {
+        "defaults": { "min": 0, "max": 10 }
+      }
+    },
+    {
+      "type": "gauge",
+      "title": "Battery (%)",
+      "targets": [{ "expr": "iot_battery_percent", "refId": "D" }],
+      "gridPos": { "x": 18, "y": 0, "w": 6, "h": 6 },
+      "fieldConfig": {
+        "defaults": {
+          "min": 0, "max": 100,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              { "color": "red", "value": null },
+              { "color": "orange", "value": 20 },
+              { "color": "green", "value": 50 }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "type": "gauge",
+      "title": "Air Quality Index (AQI)",
+      "targets": [{ "expr": "iot_air_quality_index", "refId": "E" }],
+      "gridPos": { "x": 0, "y": 6, "w": 6, "h": 6 },
+      "fieldConfig": {
+        "defaults": { "min": 0, "max": 150 }
+      }
+    },
+    {
+      "type": "gauge",
+      "title": "Light Intensity (lumens)",
+      "targets": [{ "expr": "iot_light_intensity", "refId": "F" }],
+      "gridPos": { "x": 6, "y": 6, "w": 6, "h": 6 },
+      "fieldConfig": {
+        "defaults": { "min": 0, "max": 1000 }
+      }
+    },
+    {
+      "type": "gauge",
+      "title": "Sound Level (dB)",
+      "targets": [{ "expr": "iot_sound_level_db", "refId": "G" }],
+      "gridPos": { "x": 12, "y": 6, "w": 6, "h": 6 },
+      "fieldConfig": {
+        "defaults": { "min": 0, "max": 120 }
+      }
+    },
+    {
+      "type": "gauge",
+      "title": "CO₂ Level (ppm)",
+      "targets": [{ "expr": "iot_co2_ppm", "refId": "H" }],
+      "gridPos": { "x": 18, "y": 6, "w": 6, "h": 6 },
+      "fieldConfig": {
+        "defaults": { "min": 0, "max": 2000 }
+      }
+    },
+    {
+      "type": "gauge",
+      "title": "Pressure (hPa)",
+      "targets": [{ "expr": "iot_pressure_hpa", "refId": "I" }],
+      "gridPos": { "x": 0, "y": 12, "w": 6, "h": 6 },
+      "fieldConfig": {
+        "defaults": { "min": 900, "max": 1100 }
+      }
+    },
+    {
+      "type": "gauge",
+      "title": "Motion Detected",
+      "targets": [{ "expr": "iot_motion_detected", "refId": "J" }],
+      "gridPos": { "x": 6, "y": 12, "w": 6, "h": 6 },
+      "fieldConfig": {
+        "defaults": {
+          "min": 0, "max": 1,
+          "mappings": [
+            { "type": "value", "options": { "0": { "color": "green", "text": "No Motion" }, "1": { "color": "red", "text": "Motion" } } }
+          ]
+        }
+      }
+    },
+    {
+      "type": "gauge",
+      "title": "Device Status",
+      "targets": [{ "expr": "iot_device_active", "refId": "K" }],
+      "gridPos": { "x": 12, "y": 12, "w": 6, "h": 6 },
+      "fieldConfig": {
+        "defaults": {
+          "min": 0, "max": 1,
+          "mappings": [
+            { "type": "value", "options": { "0": { "color": "red", "text": "Inactive" }, "1": { "color": "green", "text": "Active" } } }
+          ]
+        }
+      }
+    }
+  ]
+}
