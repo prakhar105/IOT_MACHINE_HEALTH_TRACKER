@@ -3,8 +3,7 @@ import json, sqlite3
 from prometheus_client import start_http_server, Gauge
 
 # Change this to your consumer Tailscale IP
-BROKER = #<Consumer Tailscale ip>
-
+BROKER = "localhost:9092"
 #--- Prometheus Metrics ---
 start_http_server(8000)
 temperature_gauge     = Gauge('iot_temperature_celsius', 'Temperature in Celsius')
