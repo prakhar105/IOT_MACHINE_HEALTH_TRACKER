@@ -6,7 +6,7 @@ This project demonstrates a complete **IoT data pipeline** for monitoring machin
 - A **laptop** consumes the Kafka data, stores it in an **SQLite database**, and exposes metrics through a **Prometheus exporter**.  
 - **Prometheus** scrapes the metrics, and **Grafana** visualizes them in real-time dashboards (gauges, charts, alerts).  
    - Contains gauges for temperature, humidity, AQI, battery, etc.  
-![](https://github.com/prakhar105/object-detection/blob/main/assets/architecture.png)
+![](https://github.com/prakhar105/IOT_MACHINE_HEALTH_TRACKER/blob/master/assets/architecture.png)
 ---
 
 ## 📦 Features
@@ -78,7 +78,7 @@ pip install kafka-python prometheus-client
 ### 5. Run Consumer (on Laptop)
 - Subscribes to Kafka topic `iot_data`  
 - Stores received messages into an **SQLite database** (`iot_data.db`)  
-- Exposes Prometheus metrics at `http://localhost:8000/metrics`  
+- Exposes Prometheus metrics at `http://localhost:9092/metrics`  
 
 ---
 
@@ -93,17 +93,17 @@ scrape_configs:
 ```
 
 - Restart Prometheus and verify targets at:  
-  [http://localhost:9090/targets](http://localhost:9090/targets)
+  [http://localhost:8000/targets](http://localhost:8000/targets)
 
 ---
 
 ### 7. Setup Grafana
 1. Install Grafana and open: [http://localhost:3000](http://localhost:3000)  
    - Default login: `admin / admin`  
-2. Add **Prometheus data source** (`http://localhost:9090`)  
+2. Add **Prometheus data source** (`http://localhost:8000`)  
 3. Import dashboard JSON (`iot_gauges.json`)  
    - Contains gauges for temperature, humidity, AQI, battery, etc.  
-![](https://github.com/prakhar105/object-detection/blob/main/assets/grafana.png)
+![](https://github.com/prakhar105/IOT_MACHINE_HEALTH_TRACKER/blob/master/assets/grafana.png)
 ---
 
 ## 📊 Available Metrics
