@@ -2,7 +2,11 @@ from kafka import KafkaProducer
 import json, time, random
 
 # Change this to your laptop's Tailscale IP
+<<<<<<< HEAD
 BROKER = #<consumer tailscale IP>
+=======
+BROKER = #<IP>
+>>>>>>> 40584b658c01d5f5aa51e686651b09e8b4ad808a
 
 producer = KafkaProducer(
     bootstrap_servers=[BROKER],
